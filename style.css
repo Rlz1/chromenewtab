@@ -24,21 +24,10 @@ body{
   margin:30px auto;
   padding:28px;
   border-radius:12px;
-  /* ИЗМЕНЕНИЕ: Сделали фон прозрачным */
   background:transparent;
   border:1px solid var(--border);
   min-height:calc(100vh - 60px);
   box-sizing:border-box;
-}
-
-pre.ascii{
-  font-size:12px;
-  line-height:1.1;
-  margin:0 0 12px 0;
-  color:var(--accent);
-  white-space:pre-wrap;
-  overflow:hidden;
-  min-height:120px;
 }
 
 .toprow{
