@@ -1,66 +1,7 @@
-const CORRECT_SECRET_KEY = 'vvedite_svoy_sekretny_klyuch'; 
-const EXPECTED_USER_AGENT_START = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)'; 
-
-const AUTH_KEY = 'ascii_authenticated';
-const mainContent = document.getElementById('mainContent');
-const authScreen = document.getElementById('authScreen');
 const openBgSettingsBtn = document.getElementById('openBgSettingsBtn');
-const loginBtn = document.getElementById('loginBtn');
-const passwordInput = document.getElementById('passwordInput');
-const loginError = document.getElementById('loginError');
 
-if (passwordInput) {
-    passwordInput.placeholder = 'Введите секретный ключ';
-}
-
-function checkAuthentication() {
-  if (sessionStorage.getItem(AUTH_KEY) === 'true') {
-    showContent();
-  } else {
-    showLogin();
-  }
-}
-
-function showContent() {
-  if (mainContent) mainContent.style.display = 'block';
-  if (authScreen) authScreen.style.display = 'none';
-  if (openBgSettingsBtn) openBgSettingsBtn.style.display = 'block';
-  initializeDashboard(); 
-}
-
-function showLogin() {
-  if (mainContent) mainContent.style.display = 'none';
-  if (authScreen) authScreen.style.display = 'block';
-  if (openBgSettingsBtn) openBgSettingsBtn.style.display = 'none';
-  
-  loginBtn.onclick = attemptLogin;
-  passwordInput.onkeypress = (e) => {
-    if (e.key === 'Enter') attemptLogin();
-  };
-}
-
-function attemptLogin() {
-  const enteredKey = passwordInput.value.trim();
-  const currentUserAgent = navigator.userAgent;
-  
-  if (enteredKey !== CORRECT_SECRET_KEY) {
-      loginError.textContent = 'Ошибка: Неверный ключ доступа.';
-      loginError.style.display = 'block';
-      passwordInput.value = '';
-      return;
-  }
-  
-  if (!currentUserAgent.startsWith(EXPECTED_USER_AGENT_START)) {
-      loginError.textContent = 'Ошибка: Устройство или браузер не авторизованы.';
-      loginError.style.display = 'block';
-      passwordInput.value = ''; 
-      return;
-  }
-  
-  sessionStorage.setItem(AUTH_KEY, 'true');
-  showContent();
-  loginError.style.display = 'none';
-}
+initializeDashboard(); 
+if (openBgSettingsBtn) openBgSettingsBtn.style.display = 'block';
 
 function initializeDashboard() {
   
@@ -283,5 +224,3 @@ function initializeDashboard() {
   function weatherCodeToIcon(c){if(c===0)return'☀️';if(c<=3)return'⛅';if(c>=45&&c<=48)return'🌫️';if(c>=51&&c<=67)return'🌧️';if(c>=71&&c<=77)return'❄️';return'🌤️';}
   if(navigator.geolocation){navigator.geolocation.getCurrentPosition(p=>fetchWeather(p.coords.latitude,p.coords.longitude),()=>fetchWeather(52.37,4.90),{timeout:5000});}else fetchWeather(52.37,4.90);
 }
-
-checkAuthentication();

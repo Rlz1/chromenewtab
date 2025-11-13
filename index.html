@@ -9,16 +9,7 @@
 </head>
 <body>
 
-  <div id="authScreen">
-    <div class="panel" style="width: 300px; text-align: center; margin: 150px auto;">
-      <div style="font-size:16px; color:var(--accent); margin-bottom: 20px;">-- Restricted Access --</div>
-      <input type="password" id="passwordInput" placeholder="Введите секретный ключ" class="input-field" style="margin-bottom: 12px;" />
-      <button class="btn small" id="loginBtn" style="width: 100%;"><i class="fa-solid fa-lock-open"></i> Войти</button>
-      <div id="loginError" style="color: #ff4757; margin-top: 10px; font-size: 14px; display: none;">Неверный ключ или устройство.</div>
-    </div>
-  </div>
-
-  <div class="wrap" id="mainContent" style="display: none;">
+  <div class="wrap"> 
 
     <div class="toprow">
       <div class="left">
@@ -64,7 +55,7 @@
     </div>
   </div>
 
-  <i id="openBgSettingsBtn" class="fa-solid fa-palette" title="Настройки фона" style="display: none;"></i>
+  <i id="openBgSettingsBtn" class="fa-solid fa-palette" title="Настройки фона"></i>
 
   <div id="modalBackdrop" style="display: none;"></div>
   <div id="bgModal" style="display: none;">
