@@ -1,4 +1,3 @@
-
 function showRandomAscii() {
   const art = asciiArts[Math.floor(Math.random() * asciiArts.length)];
   document.getElementById('ascii-art').textContent = art;
