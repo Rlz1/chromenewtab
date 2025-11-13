@@ -26,7 +26,7 @@ function initializeDashboard() {
   }
   showGreeting();setInterval(showGreeting,10000);
 
-  const QL_KEY = 'ascii_quicklinks_v1';
+  const QL_KEY = 'dashboard_quicklinks_v1';
   const defaultQuickLinks = [
     { url: "https://mail.google.com", icon: "fa-solid fa-envelope", type: "fa" },
     { url: "https://www.youtube.com", icon: "fa-brands fa-youtube", type: "fa" },
@@ -144,8 +144,8 @@ function initializeDashboard() {
   if (closeBtn) closeBtn.onclick = closeModal;
   if (backdrop) backdrop.onclick = closeModal;
 
-  const BG_COLOR_KEY = 'ascii_bg_color';
-  const BG_IMAGE_KEY = 'ascii_bg_image'; 
+  const BG_COLOR_KEY = 'dashboard_bg_color';
+  const BG_IMAGE_KEY = 'dashboard_bg_image'; 
   const colorPicker = document.getElementById('bgColor');
   const hexInput = document.getElementById('bgHex');
   const imageUrlInput = document.getElementById('bgImageUrl');
