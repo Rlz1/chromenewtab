@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>New Tab</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-GL5SFPHWnHe4X3V8ZogDPAbr2n2dQfWd2yZ9nxdTBoU8GkN4s4RyuzslwJ0EJk0HztuX9qv+xDxE2BbKsd4A==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\" />
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="wrap">
+    <pre class="ascii" id="ascii-art"></pre>
+
+    <div class="toprow">
+      <div class="left">
+        <div class="panel" style="text-align: center;">
+          <div class="clock" id="time">--:--</div>
+          <div class="date" id="date">--</div>
+
+          <div class="search">
+            <form id="searchForm" action="https://www.google.com/search" method="GET">
+              <input name="q" id="searchInput" placeholder="Поиск в Google — напишите и нажмите Enter" autocomplete="off" />
+            </form>
+          </div>
+
+          <div class="panel" style="margin-top:12px; text-align: left;">
+            <div class="weather" id="weather">
+              <div class="w-icon" id="wicon">☀️</div>
+              <div>
+                <div class="w-temp" id="wtemp">--°C</div>
+                <div class="muted" id="wdesc">Загрузка погоды...</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" style="text-align: left;">
+            <div class="greeting" id="greeting">...</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="panel">
+          <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; color:var(--muted)">
+            <span>Быстрые ссылки</span>
+          </div>
+          <div id="quickLinksGrid" style="display:flex; gap:10px; margin-top:10px; flex-wrap:wrap">
+            </div>
+        </div>
+
+        <div class="panel">
+          <div style="font-size:13px;color:var(--muted); margin-bottom:8px;">Добавить ссылку</div>
+          <input id="quickLinkUrl" placeholder="https://example.com" class="input-field" />
+          <input id="quickLinkIcon" placeholder="Иконка (fa-brands fa-youtube) или URL (.png)" class="input-field" />
+          <button class="btn small" id="addQuickLinkBtn" style="width:100%"><i class="fa-solid fa-plus"></i>Добавить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <i id="openBgSettingsBtn" class="fa-solid fa-palette" title="Настройки фона"></i>
+
+  <div id="modalBackdrop"></div>
+  <div id="bgModal">
+    <div class="panel" style="width: 300px; margin-bottom: 0; box-sizing: border-box;">
+      <div style="font-size:13px;color:var(--muted); margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+        <span>Настройки фона</span>
+        <i id="closeBgModalBtn" class="fa-solid fa-times" style="cursor:pointer;" title="Закрыть"></i>
+      </div>
+      
+      <div style="font-size:13px;color:var(--muted); margin-bottom:8px;">Изменить цвет</div>
+      <div style="display:flex; gap:8px; margin-bottom:8px; align-items:center;">
+        <input type="color" id="bgColor" value="#0f0f0f" style="border:1px solid var(--border); padding:0; background:none; width:30px; height:30px; cursor:pointer;" title="Выбрать цвет">
+        <input type="text" id="bgHex" placeholder="#0f0f0f" class="input-field" style="flex:1; margin-bottom:0;">
+      </div>
+      
+      <div style="font-size:13px;color:var(--muted); margin-bottom:8px; margin-top:12px;">Загрузить фон</div>
+      <input type="file" id="bgFileInput" accept="image/*" class="input-field" style="padding: 6px;">
+      <input type="text" id="bgImageUrl" placeholder="...или URL изображения (.jpg, .gif...)" class="input-field">
+      
+      <button class="btn small" id="applyBgBtn" style="width:100%; margin-bottom:8px; margin-top: 8px;"><i class="fa-solid fa-check"></i> Применить</button>
+      <button class="btn small" id="resetBgBtn" style="width:100%;"><i class="fa-solid fa-trash"></i> Сбросить</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
